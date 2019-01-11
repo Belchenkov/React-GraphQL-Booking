@@ -19,7 +19,8 @@ module.exports = {
                 password: hashedPassword
             });
 
-            const result = user.save();
+            const result = await user.save();
+
             return {
                 ...result._doc,
                 password: null,

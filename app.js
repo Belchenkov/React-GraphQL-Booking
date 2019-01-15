@@ -31,9 +31,13 @@ app.use('/graphql', graphqlHttp({
     graphiql: true
 }));
 
-mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-1owsl.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`)
+mongoose.connect(
+    `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-1owsl.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`,
+    { useNewUrlParser: true }
+)
     .then(() => {
         app.listen(8000, () => {
+            console.log(`MongoDB Connected!`);
             console.log(`Server running on port 8000`);
         });
     })

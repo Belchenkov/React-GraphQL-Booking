@@ -35,12 +35,20 @@ const mainNavigation = props => {
                                     </NavLink>
                                 </li>
                                 { context.token &&
-                                    <li>
-                                        <NavLink to="/bookings">
-                                            <img src="https://img.icons8.com/color/20/000000/books.png" alt="Bookings" />
-                                            Bookings
-                                        </NavLink>
-                                    </li>
+                                    <React.Fragment>
+                                        <li>
+                                            <NavLink to="/bookings">
+                                                <img src="https://img.icons8.com/color/20/000000/books.png" alt="Bookings" />
+                                                Bookings
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <a href="#" onClick={context.logout}>
+                                                <img src="https://img.icons8.com/dusk/20/000000/exit.png" />
+                                                Logout
+                                            </a>
+                                        </li>
+                                    </React.Fragment>
                                 }
                             </ul>
                         </nav>

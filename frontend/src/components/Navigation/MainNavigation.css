@@ -49,6 +49,7 @@
     transition: all .2s ease-in-out;
     display: flex;
     align-items: center;
+    border: none;
 }
 
 .main-navigation-items a:hover,

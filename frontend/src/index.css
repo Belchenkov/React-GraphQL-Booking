@@ -3,3 +3,42 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.form-control label,
+.form-control input,
+.form-control textarea {
+  width: 100%;
+  display: block;
+  outline: none;
+}
+
+.form-control {
+  margin-bottom: 1rem;
+}
+
+.form-control label {
+  margin-bottom: 0.5rem;
+}
+
+.form-actions button,
+.btn {
+  background: #516fd1;
+  font: inherit;
+  border: 1px solid #516fd1;
+  border-radius: 3px;
+  padding: 0.25rem 1rem;
+  margin-right: 1rem;
+  color: #fff;
+  outline: none;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.26);
+  cursor: pointer;
+  transition: all .35s ease-out;
+}
+
+.form-actions button:hover,
+.form-actions button:active,
+.btn:hover,
+.btn:active {
+  background: #2547d1;
+  transition: all .25s ease-out;
+}

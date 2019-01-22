@@ -17,7 +17,6 @@ module.exports = {
         if (!req.isAuth) {
             throw new Error('Unauthenticated!');
         }
-
         const event = new Event({
             title: args.eventInput.title,
             description: args.eventInput.description,
@@ -25,33 +24,21 @@ module.exports = {
             date: new Date(args.eventInput.date),
             creator: req.userId
         });
-
         let createdEvent;
-
         try {
             const result = await event.save();
-
             createdEvent = transformEvent(result);
-
             const creator = await User.findById(req.userId);
+
             if (!creator) {
-                throw new Error('User not found!')
+                throw new Error('User not found.');
             }
             creator.createdEvents.push(event);
             await creator.save();
+
             return createdEvent;
         } catch (err) {
-            throw err;
-        }
-
-    },
-    cancelBooking: async args => {
-        try {
-            const booking = await Booking.findById(args.bookingId).populate('event');
-            const event = transformEvent(booking._doc.event);
-            await Booking.deleteOne({ _id: args.bookingId });
-            return event;
-        } catch (err) {
+            console.log(err);
             throw err;
         }
     }

@@ -180,7 +180,10 @@ class EventsPage extends Component {
                         </button>
                     </div>
                 )}
-                <EventList events={this.state.events} />
+                <EventList
+                    authUserId={this.context.userId}
+                    events={this.state.events}
+                />
             </React.Fragment>
         );
     }

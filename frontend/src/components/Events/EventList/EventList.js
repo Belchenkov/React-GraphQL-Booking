@@ -9,6 +9,8 @@ const eventList = props => {
                     eventId={event._id}
                     title={event.title}
                     key={event._id}
+                    userId={props.authUserId}
+                    creatorId={event.creator._id}
                 />
     });
 
